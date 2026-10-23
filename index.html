@@ -749,3 +749,456 @@
                 content: "1. عناصر الموجه البرمجي الناجح (السياق، المهمة، القيود، الصيغة المطلوبة).\n2. تحليل أمثلة لموجهات ضعيفة مقابل موجهات دقيقة.\n3. استكشاف أداة AI Assistant المدمجة في المنصة.",
                 activity: "تطبيق عملي: صياغة موجه لبناء هيكل فقرة نصية بلغة HTML ومقارنة الإجابات.",
                 closure: "ملخص لخماسية الموجه البرمجي الناجح وتدوينها في دفتر الطالب.",
+                tools: "أجهزة حاسوب / بيئة QUREO AI Toolset / بطاقات موجهات.",
+                evalTools: "تقييم أداء عملي (Rubrics) + اختبار سريع.",
+                evalForm: "اكتب موجهاً برمجياً يطلب إنشاء زر تفاعلي باللون الأزرق وكتابة 'تسجيل الدخول'.",
+                enrichment: "تحدي صياغة أفضل Prompt برمجي بأقل عدد من الكلمات للحصول على النتيجة المطلوبة.",
+                remediation: "تقديم قوالب جاهزة (Templates) للموجهات ومساعدة الطلاب في ملء الفراغات."
+            },
+            {
+                id: 3, week: 1, period: "الأسبوع 1 - الحصة 3", module: "الوحدة الأولى: كود الخبير البرمجي واستخدام منصة QUREO",
+                title: "تحليل الأكواد وتصحيح الأخطاء باستخدام الذكاء الاصطناعي (Debugging with AI)",
+                unitTitle: "كود الخبير البرمجي واستخدام QUREO",
+                objectives: "1. أن يحدد الطالب أنواع الأخطاء البرمجية (Syntax vs Logical).\n2. أن يستعين بالمساعد الآلي لاكتشاف الأخطاء وتفسير أسبابها.\n3. أن يطبق التصحيح المقترح داخل البيئة البرمجية.",
+                outcomes: "يستطيع الطالب اكتشاف الأخطاء البرمجية وإصلاحها بكفاءة بمساعدة الذكاء الاصطناعي.",
+                strategy: "التعلم بالكتشاف + البيان العملي (Demonstration).",
+                intro: "عرض كود HTML يحتوي على 3 أخطاء شائعة وسؤال الطلاب عن أثر هذه الأخطاء على الصفحة.",
+                content: "1. كيفية إدخال الكود المعطوب للمساعد الآلي للتحليل.\n2. فهم رسائل الخطأ والتفسيرات المقدمة.\n3. اختبار الكود بعد التعديل والتأكد من سلامة التشغيل.",
+                activity: "تمرين تصحيح: تقديم شفرة برمجية بها أخطاء إملاء أوسمة والمطلوب تصحيحها بواسطة منصة QUREO.",
+                closure: "مراجعة أهم 3 أخطاء تقع دائماً عند كتابة أوسمة HTML.",
+                tools: "بيئة تطوير QUREO IDE / أكواد نموذجية بها أخطاء معدة مسبقاً.",
+                evalTools: "اختبار أداء عملي من خلال تصحيح كود معطوب.",
+                evalForm: "صحح الأخطاء التالية في الكود: `<p>Hello World</html>` و `<img src='pic.jpg'>` بدون إغلاق.",
+                enrichment: "إنشاء دليل مصغر لأشهر 5 أخطاء برمجية وكيفية تجنبها.",
+                remediation: "جلسة دعم فردي لتدريب الطلاب على تتبع الأوسمة المفتوحة والمغلقة."
+            }
+        ];
+
+        // Fill up to 36 lessons
+        const modules = [
+            "الوحدة الأولى: كود الخبير البرمجي واستخدام منصة QUREO",
+            "الوحدة الثانية: أساسيات تطوير المواقع بلغة HTML5 والتنسيق",
+            "الوحدة الثالثة: التنسيق المتقدم CSS3 والتصميم الاستجابي",
+            "الوحدة الرابعة: التفاعلية والبرمجة النصية بلغة JavaScript"
+        ];
+
+        const titlesCatalog = [
+            /* 4 */ "بنية مستند HTML5 والأوسمة الأساسية <html> <head> <body>",
+            /* 5 */ "وسوم الترويسات <h1>..<h6> والفقرات <p> والفاصل المباشر",
+            /* 6 */ "تنسيق النصوص والخطوط وإبراز الكلمات <strong> <em> <mark>",
+            /* 7 */ "إضافة الصور <img> والتحكم في أبعادها ومساراتها النسبية والمطلقة",
+            /* 8 */ "إدراج المقاطع الصوتية <audio> والفيديو <video> والتحكم بالتشغيل",
+            /* 9 */ "إنشاء الروابط التشعبية <a> والتنقل بين الصفحات والمواقع",
+            /* 10 */ "القوائم المرتبة <ol> وغير المرتبة <ul> وقوائم الوصف <dl>",
+            /* 11 */ "بناء الجداول <table> ووسوم الأسطر <tr> والخلايا <td> و <th>",
+            /* 12 */ "دمج الخلايا بالأعمدة rowspan و colspan في الجداول المعقدة",
+            /* 13 */ "إنشاء النماذج التفاعلية <form> وعناصر الإدخال النصي <input>",
+            /* 14 */ "أنواع الإدخالات المتقدمة (password, email, date, checkbox, radio)",
+            /* 15 */ "القوائم المنسدلة <select> ومربعات النص الكبيرة <textarea>",
+            /* 16 */ "مدخل إلى لغة CSS3 وطرق ربطها (Inline, Internal, External)",
+            /* 17 */ "المحددات في CSS (Element, Class, ID Selectors) والأولويات",
+            /* 18 */ "التعامل مع الألوان والصلابة والشفافية (RGB, HEX, HSL)",
+            /* 19 */ "تنسيق الخطوط والنصوص Font-Family, Size, Weight, Alignment",
+            /* 20 */ "نموذج الصندوق Box Model (Content, Padding, Border, Margin)",
+            /* 21 */ "التحكم بالحدود Border Styling والخلفيات Background Images",
+            /* 22 */ "مفهوم التخطيط المرن Flexbox وخاصية display: flex",
+            /* 23 */ "محاذاة العناصر في Flexbox باستخدام justify-content و align-items",
+            /* 24 */ "التخطيط بالشبكة CSS Grid وخاصية display: grid والصفوف",
+            /* 25 */ "مفهوم التصميم الاستجابي Responsive Design واستعلامات الوسائط @media",
+            /* 26 */ "تطبيق عملي: بناء صفحة هبوط شخصية متكاملة الاستجابة",
+            /* 27 */ "مدخل لبيئة JavaScript وكتابة أول سكربت في Console",
+            /* 28 */ "المتغيرات وأنواع البيانات (let, const, var, String, Number, Boolean)",
+            /* 29 */ "العمليات الحسابية والمنطقية Comparison & Logical Operators",
+            /* 30 */ "الجمل الشرطية اتخاذ القرار if ... else statement",
+            /* 31 */ "الشروط المتعددة else if وحالات switch case",
+            /* 32 */ "الحلقات التكرارية For Loop وتكرار التكويد لتقليل التكرار",
+            /* 33 */ "الحلقات التكرارية While Loop و Do-While واستخداماتها",
+            /* 34 */ "الدوال البرمجية Functions والإرجاع Return Parameters",
+            /* 35 */ "التعامل مع شجرة العناصر DOM والوصول للعناصر getElementById",
+            /* 36 */ "معالجة الأحداث Events (onclick, onmouseover) ومشروع ختامي شامل"
+        ];
+
+        for (let i = 4; i <= 36; i++) {
+            const w = Math.ceil(i / 3);
+            const mIndex = i <= 3 ? 0 : (i <= 15 ? 1 : (i <= 26 ? 2 : 3));
+            lessonsData.push({
+                id: i,
+                week: w,
+                period: `الأسبوع ${w} - الحصة ${(i - 1) % 3 + 1}`,
+                module: modules[mIndex],
+                title: titlesCatalog[i - 4],
+                unitTitle: modules[mIndex].split(":")[1].trim(),
+                objectives: `1. أن يفهم الطالب المفهوم البرمجي الخاص بـ (${titlesCatalog[i - 4].split(" ")[0]}).\n2. أن يكتب الشفرة البرمجية الصحيحة في منصة QUREO بدون أخطاء بنسبة 85%.\n3. أن يطبق الأوامر في مشروع التطبيق العملي.`,
+                outcomes: `يصبح الطالب قادرًا على كتابة واستخدام ${titlesCatalog[i - 4]} بكفاءة داخل مشاريعه المباشرة.`,
+                strategy: "عرض تفاعلي + تطبيق عملي فردي في المختبر + تعلم بالاستكشاف.",
+                intro: `مراجعة الحصة السابقة ثم طرح سؤال تمهيدي يرتبط بأهمية ${titlesCatalog[i - 4]} في بناء المواقع الحديثة.`,
+                content: `1. شرح القواعد النحوية والشكل البرمجي لـ ${titlesCatalog[i - 4]}.\n2. استعراض الأمثلة التطبيقية مباشرة داخل بيئة QUREO.\n3. توضيح الأخطاء الشائعة أثناء التكويد.`,
+                activity: `تمرين تطبيقي عملي: بناء مقطع برمجي ينفذ عناصر ${titlesCatalog[i - 4]} على الحاسوب.`,
+                closure: "تقييم ختامي سريع ومراجعة المخرجات المنجزة على أجهزة الطلاب.",
+                tools: "أجهزة حاسوب / منصة QUREO التعليمية / أداة AI Assistant / شاشة العرض.",
+                evalTools: "ملاحظة الأداء العملي + بطاقة تقييم المشروع الصغير.",
+                evalForm: `اكتب الكود البرمجي اللازم لتطبيق ${titlesCatalog[i - 4]} موضحاً أثر الأوامر المستخدمة.`,
+                enrichment: "تطبيق تحدي إضافي على منصة QUREO للطلاب المتفوقين.",
+                remediation: "تقديم ملخص وم مساعدة للطلاب المبتدئين خطوة بخطوة."
+            });
+        }
+
+        // Global State Variables
+        let currentLessonId = 1;
+        let currentFilterModule = 'all';
+
+        let teacherData = {
+            teacher: "أ / محمد رحال",
+            school: "مديرية التربية والتعليم بالقاهرة",
+            grade: "الصف الأول الثانوي الفني",
+            year: "2026 / 2027"
+        };
+
+        function syncCustomData() {
+            teacherData.teacher = document.getElementById('cfg-teacher').value || "أ / محمد رحال";
+            teacherData.school = document.getElementById('cfg-school').value || "مديرية التربية والتعليم بالقاهرة";
+            teacherData.grade = document.getElementById('cfg-grade').value || "الصف الأول الثانوي الفني";
+            teacherData.year = document.getElementById('cfg-year').value || "2026 / 2027";
+
+            renderSingleLesson(currentLessonId);
+            if(document.getElementById('view-full').classList.contains('active')){
+                renderFullBooklet();
+            }
+        }
+
+        // Auto Initialize on Load
+        function initApp() {
+            renderSidebarList(lessonsData);
+            renderSingleLesson(1);
+            buildScheduleTable();
+        }
+
+        window.addEventListener('DOMContentLoaded', initApp);
+        window.addEventListener('load', initApp);
+
+        // Tab Switcher
+        function switchMainTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active'));
+
+            if (tab === 'single') {
+                document.getElementById('tab-btn-single').classList.add('active');
+                document.getElementById('view-single').classList.add('active');
+            } else if (tab === 'schedule') {
+                document.getElementById('tab-btn-schedule').classList.add('active');
+                document.getElementById('view-schedule').classList.add('active');
+            } else if (tab === 'full') {
+                document.getElementById('tab-btn-full').classList.add('active');
+                document.getElementById('view-full').classList.add('active');
+                renderFullBooklet();
+            }
+        }
+
+        // Sidebar List Renderer
+        function renderSidebarList(data) {
+            const container = document.getElementById('lessons-list-container');
+            if(!container) return;
+            container.innerHTML = '';
+            document.getElementById('lesson-count-badge').textContent = `${data.length} حصة`;
+
+            data.forEach(item => {
+                const btn = document.createElement('button');
+                btn.className = `lesson-item-btn ${item.id === currentLessonId ? 'active' : ''}`;
+                btn.onclick = () => selectLesson(item.id);
+                btn.innerHTML = `
+                    <div class="lesson-num-badge">${item.id}</div>
+                    <div class="lesson-info">
+                        <div class="title">${item.title}</div>
+                        <div class="meta">${item.period} | الأسبوع ${item.week}</div>
+                    </div>
+                `;
+                container.appendChild(btn);
+            });
+        }
+
+        // Filters
+        function filterLessons() {
+            const searchVal = document.getElementById('search-box').value.toLowerCase();
+            const weekVal = document.getElementById('week-filter').value;
+
+            const filtered = lessonsData.filter(item => {
+                const matchSearch = item.title.toLowerCase().includes(searchVal) || item.module.toLowerCase().includes(searchVal);
+                const matchWeek = (weekVal === 'all') || (item.week.toString() === weekVal);
+                const matchModule = (currentFilterModule === 'all') || 
+                    (currentFilterModule === '1' && item.id <= 3) ||
+                    (currentFilterModule === '2' && item.id >= 4 && item.id <= 15) ||
+                    (currentFilterModule === '3' && item.id >= 16 && item.id <= 26) ||
+                    (currentFilterModule === '4' && item.id >= 27);
+
+                return matchSearch && matchWeek && matchModule;
+            });
+
+            renderSidebarList(filtered);
+        }
+
+        function setModuleFilter(mod, btn) {
+            document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFilterModule = mod;
+            filterLessons();
+        }
+
+        function selectLesson(id) {
+            currentLessonId = id;
+            renderSidebarList(lessonsData);
+            renderSingleLesson(id);
+
+            if (!document.getElementById('view-single').classList.contains('active')) {
+                switchMainTab('single');
+            }
+        }
+
+        function navigateLesson(direction) {
+            let target = currentLessonId + direction;
+            if (target >= 1 && target <= 36) {
+                selectLesson(target);
+            }
+        }
+
+        // Template Generator matching original layout
+        function generateTemplateHTML(data) {
+            return `
+            <div class="template-sheet" id="prep-sheet-${data.id}">
+                <!-- Document Header -->
+                <div class="sheet-header-logo">
+                    <div>
+                        <strong style="color: var(--blue-dark); font-size: 1.05rem;">مديرية التربية والتعليم بالقاهرة</strong><br>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">${teacherData.school} - مدارس التكنولوجيا التطبيقية</span>
+                    </div>
+                    <div style="text-align: center;">
+                        <span class="sheet-badge-title">
+                            <span class="doc-tag">دفتر تحضير البرمجة والذكاء الاصطناعي</span>
+                        </span>
+                        <div class="doc-sub">نظام الجدارات والمعايير المعتمدة - العام الدراسي ${teacherData.year}</div>
+                    </div>
+                    <div style="text-align: left;">
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--blue-dark);">معلم المادة: ${teacherData.teacher}</span><br>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">${teacherData.grade}</span>
+                    </div>
+                </div>
+
+                <!-- Meta Table 1 -->
+                <table class="tpl-table">
+                    <tr>
+                        <td class="tpl-label-cell">الوحدة / المحور</td>
+                        <td colspan="3" style="font-weight: 700; color: var(--blue-dark);">${data.module}</td>
+                        <td class="tpl-sub-label">الأسبوع الدراسي</td>
+                        <td class="tpl-text-align-center" style="font-weight: 800; width: 90px;">الأسبوع ${data.week}</td>
+                    </tr>
+                    <tr>
+                        <td class="tpl-label-cell">عنوان الدرس / الحصة</td>
+                        <td colspan="3" style="font-weight: 800; color: var(--blue-main); font-size: 0.95rem;">الحصة (${data.id}): ${data.title}</td>
+                        <td class="tpl-sub-label">الفترة / التوقيت</td>
+                        <td class="tpl-text-align-center" style="font-weight: 700;">${data.period}</td>
+                    </tr>
+                </table>
+
+                <!-- Meta Table 2: Objectives & Outcomes -->
+                <table class="tpl-table">
+                    <tr>
+                        <td class="tpl-icon-col">🎯</td>
+                        <td class="tpl-label-cell">الأهداف الإجرائية (Behavioral Objectives)</td>
+                        <td style="white-space: pre-line;">${data.objectives}</td>
+                    </tr>
+                    <tr>
+                        <td class="tpl-icon-col">💡</td>
+                        <td class="tpl-label-cell">مخرجات التعلم (Learning Outcomes)</td>
+                        <td style="font-weight: 600; color: #0d522c;">${data.outcomes}</td>
+                    </tr>
+                </table>
+
+                <!-- Strategies & Tools -->
+                <table class="tpl-table">
+                    <tr>
+                        <td class="tpl-label-cell">استراتيجيات التدريس</td>
+                        <td>${data.strategy}</td>
+                        <td class="tpl-label-cell">الوسائل والأدوات</td>
+                        <td>${data.tools}</td>
+                    </tr>
+                </table>
+
+                <!-- Checkbox Matrix for Modern Standards -->
+                <table class="tpl-table">
+                    <tr>
+                        <td class="tpl-label-cell" style="width: 130px;">دعم الجدارات والتكنولوجيا</td>
+                        <td>
+                            <div class="chk-grid">
+                                <span class="chk-item"><span class="chk-box checked">✓</span> استخدام منصة QUREO التعليمية</span>
+                                <span class="chk-item"><span class="chk-box checked">✓</span> أداة الذكاء الاصطناعي AI Assistant</span>
+                                <span class="chk-item"><span class="chk-box checked">✓</span> التقييم المستمر ومعايير TOFAS</span>
+                                <span class="chk-item"><span class="chk-box checked">✓</span> التفكير الناقد وحل المشكلات</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Execution Elements (Lesson Stages) -->
+                <div style="font-weight: 800; color: var(--blue-dark); margin: 10px 0 6px 0; font-size: 0.9rem;">
+                    📌 مراحل وخطوات تنفيذ الدرس:
+                </div>
+
+                <table class="tpl-table">
+                    <tr>
+                        <td class="tpl-time-col">5 دقائق</td>
+                        <td class="tpl-label-cell" style="width: 110px;">1. التهيئة والتمهيد</td>
+                        <td>${data.intro}</td>
+                    </tr>
+                </table>
+
+                <table class="tpl-table">
+                    <tr>
+                        <td class="tpl-time-col">20 دقيقة</td>
+                        <td class="tpl-label-cell" style="width: 110px;">2. العرض والأنشطة</td>
+                        <td style="white-space: pre-line;">${data.content}</td>
+                    </tr>
+                </table>
+
+                <table class="tpl-table">
+                    <tr>
+                        <td class="tpl-time-col">15 دقيقة</td>
+                        <td class="tpl-label-cell" style="width: 110px;">3. التطبيق العملي</td>
+                        <td><strong>النشاط التطبيقي:</strong> ${data.activity}</td>
+                    </tr>
+                </table>
+
+                <table class="tpl-table">
+                    <tr>
+                        <td class="tpl-time-col">5 دقائق</td>
+                        <td class="tpl-label-cell" style="width: 110px;">4. الغلق والتقويم</td>
+                        <td>${data.closure}</td>
+                    </tr>
+                </table>
+
+                <!-- Evaluation & Differentiation -->
+                <table class="tpl-table">
+                    <tr>
+                        <td class="tpl-label-cell">أدوات التقويم</td>
+                        <td>${data.evalTools}</td>
+                        <td class="tpl-label-cell">أسئلة التقويم المباشر</td>
+                        <td style="white-space: pre-line;">${data.evalForm}</td>
+                    </tr>
+                    <tr>
+                        <td class="tpl-label-cell" style="background: #2e7d32;">نشاط الإثراء (المتفوقين)</td>
+                        <td>${data.enrichment}</td>
+                        <td class="tpl-label-cell" style="background: #c62828;">خطة العلاج (الدعم)</td>
+                        <td>${data.remediation}</td>
+                    </tr>
+                </table>
+
+                <!-- Signatures Footbar -->
+                <table class="tpl-table" style="margin-top: 15px; text-align: center;">
+                    <tr style="background: var(--blue-pale);">
+                        <td style="width: 33%; font-weight: 700;">مدرس المادة: ${teacherData.teacher}</td>
+                        <td style="width: 33%; font-weight: 700;">المعلم الأول / المشرف: ....................</td>
+                        <td style="width: 33%; font-weight: 700;">اعتماد مدير المدرسة / الموجه: ....................</td>
+                    </tr>
+                </table>
+            </div>
+            `;
+        }
+
+        // Render Single Lesson Sheet
+        function renderSingleLesson(id) {
+            const lesson = lessonsData.find(l => l.id === id);
+            if (!lesson) return;
+
+            const el = document.getElementById('current-lesson-indicator');
+            if(el) el.textContent = `الدرس الحالي: الحصة (${lesson.id}) - ${lesson.title}`;
+            
+            const prepBox = document.getElementById('single-prep-container');
+            if(prepBox) prepBox.innerHTML = generateTemplateHTML(lesson);
+        }
+
+        // Render Schedule Table
+        function buildScheduleTable() {
+            const tbody = document.getElementById('schedule-table-body');
+            if(!tbody) return;
+            tbody.innerHTML = '';
+
+            lessonsData.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.onclick = () => selectLesson(item.id);
+                tr.innerHTML = `
+                    <td style="text-align: center; font-weight: 700;">الأسبوع ${item.week}</td>
+                    <td style="text-align: center;"><span class="lesson-num-badge">${item.id}</span></td>
+                    <td style="font-weight: 700; color: var(--blue-main);">${item.title}</td>
+                    <td>${item.module}</td>
+                    <td>${item.period}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Render Full Booklet View
+        function renderFullBooklet() {
+            const container = document.getElementById('full-booklet-container');
+            if(!container) return;
+            container.innerHTML = '';
+
+            lessonsData.forEach((item, index) => {
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = generateTemplateHTML(item);
+                
+                if (index < lessonsData.length - 1) {
+                    const pageBreak = document.createElement('div');
+                    pageBreak.className = 'html2pdf__page-break';
+                    wrapper.appendChild(pageBreak);
+                }
+
+                container.appendChild(wrapper);
+            });
+        }
+
+        // Download High Resolution PDF using html2pdf.js
+        function downloadPDF() {
+            renderFullBooklet();
+            const element = document.getElementById('full-booklet-container');
+            element.classList.add('pdf-export-mode');
+
+            const opt = {
+                margin:       [8, 8, 8, 8],
+                filename:     `دفتر_تحضير_البرمجة_والذكاء_الاصطناعي_2026_2027.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { 
+                    scale: 2, 
+                    useCORS: true, 
+                    direction: 'rtl',
+                    logging: false
+                },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak:    { mode: ['css', 'legacy'], avoid: '.template-sheet' }
+            };
+
+            const alertMsg = document.createElement('div');
+            alertMsg.style.position = 'fixed';
+            alertMsg.style.top = '20px';
+            alertMsg.style.left = '50%';
+            alertMsg.style.transform = 'translateX(-50%)';
+            alertMsg.style.background = '#0f2a63';
+            alertMsg.style.color = '#fff';
+            alertMsg.style.padding = '12px 24px';
+            alertMsg.style.borderRadius = '8px';
+            alertMsg.style.boxShadow = '0 4px 15px rgba(0,0,0,0.3)';
+            alertMsg.style.zIndex = '99999';
+            alertMsg.style.fontWeight = '700';
+            alertMsg.innerHTML = '⏳ جاري تجهيز وتصدير ملف PDF المعتمد... يرجى الانتظار قليلاً';
+            document.body.appendChild(alertMsg);
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                element.classList.remove('pdf-export-mode');
+                document.body.removeChild(alertMsg);
+            }).catch(err => {
+                console.error(err);
+                element.classList.remove('pdf-export-mode');
+                if(document.body.contains(alertMsg)) document.body.removeChild(alertMsg);
+                alert("حدث خطأ أثناء التصدير، يرجى المحاولة مرة أخرى أو استخدام أزرار الطباعة المباشرة.");
+            });
+        }
+    </script>
+</body>
+</html>
