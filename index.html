@@ -1,534 +1,751 @@
-{ box-sizing: border-box; margin: 0; padding: 0; }
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دفتر تحضير البرمجة والذكاء الاصطناعي 2026 / 2027</title>
+    <!-- خطوط جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- مكتبة html2pdf لتصدير PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        :root {
+            --blue-dark: #0f2a63;
+            --blue-main: #1e4aa8;
+            --blue-mid: #2f6bd1;
+            --blue-light: #eef4ff;
+            --blue-pale: #f4f8ff;
+            --border-col: #bcd1f5;
+            --border-soft: #d2e1fa;
+            --text-main: #1c2d42;
+            --text-muted: #536b88;
+            --slate-bg: #f5f7fb;
+            --card-bg: #ffffff;
+        }
 
-body {
-font-family: 'Cairo', 'Tajawal', sans-serif;
-background: var(--slate-bg);
-color: var(--text-main);
-line-height: 1.65;
-direction: rtl;
-text-align: right;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-/* Top Header Banner */
-.app-topbar {
-background: linear-gradient(135deg, #0f2a63 0%, #1e4aa8 60%, #2f6bd1 100%);
-color: #fff;
-padding: 14px 22px;
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-justify-content: space-between;
-gap: 14px;
-box-shadow: 0 3px 12px rgba(15, 23, 42, 0.14);
-position: sticky;
-top: 0;
-z-index: 100;
-}
-.brand-box {
-display: flex;
-align-items: center;
-gap: 14px;
-}
-.brand-logo-wrap {
-background: #fff;
-padding: 5px 10px;
-border-radius: 10px;
-display: flex;
-align-items: center;
-box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-}
-.brand-logo-wrap img {
-height: 44px;
-width: auto;
-display: block;
-}
-.brand-titles h1 {
-font-size: 1.18rem;
-font-weight: 800;
-letter-spacing: -0.2px;
-}
-.brand-titles p {
-font-size: 0.82rem;
-color: #dbeafe;
-}
-.topbar-actions {
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-gap: 8px;
-}
-.tab-btn {
-background: rgba(255,255,255,0.12);
-color: #fff;
-border: 1px solid rgba(255,255,255,0.24);
-padding: 7px 14px;
-border-radius: 8px;
-font-family: inherit;
-font-size: 0.85rem;
-font-weight: 700;
-cursor: pointer;
-transition: all 0.18s ease;
-display: inline-flex;
-align-items: center;
-gap: 6px;
-}
-.tab-btn:hover { background: rgba(255,255,255,0.22); }
-.tab-btn.active {
-background: #fff;
-color: var(--blue-dark);
-border-color: #fff;
-box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background: var(--slate-bg);
+            color: var(--text-main);
+            line-height: 1.65;
+            direction: rtl;
+            text-align: right;
+        }
 
-/* Teacher / School Customization Bar */
-.custom-bar {
-background: #fff;
-border-bottom: 1px solid var(--border-soft);
-padding: 10px 22px;
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-gap: 12px;
-font-size: 0.84rem;
-}
-.custom-bar .bar-label {
-font-weight: 700;
-color: var(--blue-dark);
-display: flex;
-align-items: center;
-gap: 5px;
-}
-.custom-field {
-display: flex;
-align-items: center;
-gap: 6px;
-}
-.custom-field label {
-color: var(--text-muted);
-font-weight: 600;
-}
-.custom-field input {
-border: 1px solid var(--border-soft);
-border-radius: 6px;
-padding: 4px 10px;
-font-family: inherit;
-font-size: 0.83rem;
-color: var(--text-main);
-background: #f8fafc;
-width: 175px;
-}
-.custom-field input:focus {
-outline: none;
-border-color: var(--blue-main);
-background: #fff;
-}
+        /* Top Header Banner */
+        .app-topbar {
+            background: linear-gradient(135deg, #0f2a63 0%, #1e4aa8 60%, #2f6bd1 100%);
+            color: #fff;
+            padding: 14px 22px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            box-shadow: 0 3px 12px rgba(15, 23, 42, 0.14);
+        }
 
-/* Main Layout */
-.app-layout {
-display: grid;
-grid-template-columns: 350px 1fr;
-gap: 20px;
-max-width: 1560px;
-margin: 18px auto;
-padding: 0 18px 36px;
-align-items: start;
-}
-@media (max-width: 1024px) {
-.app-layout {
-grid-template-columns: 1fr;
-}
-.sidebar-card { position: static; }
-.lessons-list { max-height: 320px; }
-}
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
 
-/* Sidebar Lesson Navigator */
-.sidebar-card {
-background: var(--card-bg);
-border-radius: 12px;
-border: 1px solid var(--border-soft);
-box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
-overflow: hidden;
-position: sticky;
-top: 78px;
-}
-.sidebar-header {
-background: var(--blue-light);
-padding: 14px 16px;
-border-bottom: 1px solid var(--border-col);
-}
-.sidebar-header h2 {
-font-size: 0.98rem;
-color: var(--blue-dark);
-font-weight: 800;
-margin-bottom: 8px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-}
-.search-input {
-width: 100%;
-padding: 8px 12px;
-border: 1px solid var(--border-col);
-border-radius: 8px;
-font-family: inherit;
-font-size: 0.85rem;
-background: #fff;
-margin-bottom: 8px;
-}
-.filter-row {
-display: flex;
-gap: 5px;
-flex-wrap: wrap;
-}
-.filter-chip {
-flex: 1;
-text-align: center;
-padding: 5px 8px;
-font-size: 0.76rem;
-font-weight: 700;
-border-radius: 6px;
-border: 1px solid var(--border-col);
-background: #fff;
-color: var(--blue-dark);
-cursor: pointer;
-font-family: inherit;
-}
-.filter-chip.active {
-background: var(--blue-main);
-color: #fff;
-border-color: var(--blue-main);
-}
-.week-select {
-width: 100%;
-margin-top: 6px;
-padding: 6px 10px;
-border-radius: 6px;
-border: 1px solid var(--border-col);
-font-family: inherit;
-font-size: 0.82rem;
-background: #fff;
-color: var(--text-main);
-}
-.lessons-list {
-max-height: calc(100vh - 275px);
-overflow-y: auto;
-padding: 8px;
-}
-.lesson-item-btn {
-width: 100%;
-text-align: right;
-background: #fff;
-border: 1px solid transparent;
-border-bottom: 1px solid #f1f5f9;
-padding: 9px 10px;
-border-radius: 8px;
-cursor: pointer;
-font-family: inherit;
-display: flex;
-align-items: flex-start;
-gap: 9px;
-transition: all 0.15s ease;
-}
-.lesson-item-btn:hover {
-background: var(--blue-pale);
-border-color: var(--border-col);
-}
-.lesson-item-btn.active {
-background: var(--blue-light);
-border-color: var(--blue-main);
-box-shadow: inset 3px 0 0 var(--blue-main);
-}
-.lesson-num-badge {
-background: var(--blue-mid);
-color: #fff;
-font-size: 0.74rem;
-font-weight: 800;
-min-width: 28px;
-height: 26px;
-border-radius: 6px;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-flex-shrink: 0;
-margin-top: 2px;
-}
+        .brand-logo-wrap {
+            background: #fff;
+            padding: 5px 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+        }
 
-/* Main Content Area */
-.main-panel {
-min-width: 0;
-}
-.toolbar-nav {
-background: #fff;
-border: 1px solid var(--border-soft);
-border-radius: 10px;
-padding: 10px 16px;
-margin-bottom: 14px;
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-justify-content: space-between;
-gap: 10px;
-}
-.nav-btns {
-display: flex;
-align-items: center;
-gap: 8px;
-}
-.btn-action {
-background: var(--blue-main);
-color: #fff;
-border: none;
-padding: 7px 14px;
-border-radius: 7px;
-font-family: inherit;
-font-size: 0.83rem;
-font-weight: 700;
-cursor: pointer;
-display: inline-flex;
-align-items: center;
-gap: 6px;
-}
-.btn-action:hover { background: var(--blue-dark); }
-.btn-action.secondary {
-background: var(--blue-light);
-color: var(--blue-dark);
-border: 1px solid var(--border-col);
-}
-.btn-action.secondary:hover { background: #d3e2f8; }
+        .brand-logo-wrap img {
+            height: 44px;
+            width: auto;
+            display: block;
+        }
 
-/* Template Sheet Styling - Exact Matching with Original Prep File */
-.template-sheet {
-background: #fff;
-border: 2px solid var(--blue-mid);
-border-radius: 10px;
-padding: 24px;
-box-shadow: 0 4px 18px rgba(15, 23, 42, 0.07);
-margin-bottom: 22px;
-direction: rtl;
-text-align: right;
-position: relative;
-page-break-inside: avoid;
-break-inside: avoid;
-}
+        .brand-titles h1 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.2px;
+        }
 
-.sheet-header-logo {
-display: flex;
-align-items: center;
-justify-content: space-between;
-border-bottom: 3px solid var(--blue-mid);
-padding-bottom: 12px;
-margin-bottom: 14px;
-flex-wrap: wrap;
-gap: 12px;
-}
-.sheet-header-logo img {
-max-height: 60px;
-width: auto;
-}
-.sheet-badge-title {
-text-align: left;
-}
-.sheet-badge-title .doc-tag {
-background: var(--blue-mid);
-color: #fff;
-padding: 4px 12px;
-border-radius: 6px;
-font-size: 0.85rem;
-font-weight: 700;
-display: inline-block;
-}
-.sheet-badge-title .doc-sub {
-font-size: 0.78rem;
-color: var(--text-muted);
-margin-top: 3px;
-}
+        .brand-titles p {
+            font-size: 0.8rem;
+            color: #dbeafe;
+        }
 
-/* Template Tables */
-.tpl-table {
-width: 100%;
-border-collapse: collapse;
-margin-bottom: 12px;
-font-size: 0.88rem;
-direction: rtl;
-}
-.tpl-table td, .tpl-table th {
-border: 1.5px solid var(--border-col);
-padding: 8px 10px;
-vertical-align: middle;
-text-align: right;
-}
-.tpl-label-cell {
-background: var(--blue-mid);
-color: #fff;
-font-weight: 700;
-width: 155px;
-text-align: center !important;
-white-space: nowrap;
-}
-.tpl-sub-label {
-background: var(--blue-light);
-color: var(--blue-dark);
-font-weight: 700;
-text-align: center !important;
-width: 120px;
-}
-.tpl-icon-col {
-width: 65px;
-text-align: center !important;
-background: var(--blue-pale);
-vertical-align: middle;
-}
-.tpl-time-col {
-width: 85px;
-text-align: center !important;
-font-weight: 700;
-background: var(--blue-pale);
-color: var(--blue-dark);
-}
+        .topbar-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
 
-.chk-grid {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 6px 16px;
-}
-.chk-item {
-display: inline-flex;
-align-items: center;
-gap: 7px;
-font-weight: 600;
-font-size: 0.85rem;
-}
-.chk-box {
-display: inline-flex;
-align-items: center;
-justify-content: center;
-width: 18px;
-height: 18px;
-border: 1.8px solid var(--blue-main);
-border-radius: 4px;
-font-size: 0.8rem;
-font-weight: 800;
-color: #fff;
-background: #fff;
-}
-.chk-box.checked {
-background: var(--blue-main);
-color: #fff;
-}
+        .tab-btn {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.24);
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.18s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-.element-content-box {
-border: 1.5px solid var(--border-col);
-background: #fafcff;
-padding: 10px 14px;
-margin-top: -11px;
-margin-bottom: 12px;
-font-size: 0.88rem;
-line-height: 1.65;
-border-top: none;
-}
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.22);
+        }
 
-/* Page Break Dividers */
-.html2pdf__page-break {
-height: 0;
-page-break-before: always;
-break-before: page;
-margin: 0;
-border: none;
-}
+        .tab-btn.active {
+            background: #fff;
+            color: var(--blue-dark);
+            border-color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
 
-/* Schedule & Views */
-.view-section { display: none; }
-.view-section.active { display: block; }
-.schedule-table {
-width: 100%;
-border-collapse: collapse;
-background: #fff;
-font-size: 0.87rem;
-direction: rtl;
-}
-.schedule-table th {
-background: var(--blue-dark);
-color: #fff;
-padding: 10px;
-border: 1px solid var(--border-col);
-text-align: right;
-}
-.schedule-table td {
-padding: 8px 11px;
-border: 1px solid var(--border-soft);
-text-align: right;
-}
-.schedule-table tr:hover {
-background: var(--blue-pale);
-cursor: pointer;
-}
+        /* Teacher / School Customization Bar */
+        .custom-bar {
+            background: #fff;
+            border-bottom: 1px solid var(--border-soft);
+            padding: 10px 22px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.84rem;
+            color: var(--blue-dark);
+            font-weight: 700;
+        }
 
-/* PDF Print PDF Specific Overrides */
-.pdf-export-mode {
-background: #ffffff !important;
-padding: 15px !important;
-margin: 0 !important;
-border: 1.5px solid var(--blue-mid) !important;
-box-shadow: none !important;
-width: 100% !important;
-direction: rtl !important;
-}
+        .custom-bar .field-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-.pdf-export-mode * {
-box-sizing: border-box !important;
-}
+        .custom-field-label {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
 
-.pdf-export-mode .tpl-table th,
-.pdf-export-mode .tpl-table td {
-padding: 6px 8px !important;
-font-size: 11pt !important;
-border-color: #7b9cc6 !important;
-}
+        .custom-field-input {
+            border: 1px solid var(--border-soft);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-family: inherit;
+            font-size: 0.83rem;
+            color: var(--text-main);
+            background: #f8fafe;
+            width: 175px;
+        }
 
-@media print {
-.app-topbar, .custom-bar, .sidebar-card, .toolbar-nav, .no-print {
-display: none !important;
-}
-body {
-background: #fff;
-}
-.app-layout {
-display: block;
-margin: 0;
-padding: 0;
-}
-.template-sheet {
-box-shadow: none;
-border: 1.5px solid #3b6fc4;
-padding: 12px;
-page-break-inside: avoid;
-break-inside: avoid;
-}
-}
+        .custom-field-input:focus {
+            outline: none;
+            border-color: var(--blue-main);
+            background: #fff;
+        }
 
+        /* Main Layout - Optimized for Google Sites Iframe */
+        .app-layout {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 18px;
+            max-width: 1560px;
+            margin: 15px auto;
+            padding: 0 15px;
+            align-items: start;
+        }
 
-  <div id="lessonCardContainer"></div>
-</div>
+        @media (max-width: 900px) {
+            .app-layout {
+                grid-template-columns: 1fr;
+            }
+        }
 
-<!-- View 2: Full 17-Week Distribution Plan -->
-<div id="viewSchedule" class="view-section">
-  <div class="template-sheet">
-    <h2 style="color:var(--blue-dark);margin-bottom:6px;">📅 خطة التوزيع الزمني المعتمدة للفصل الدراسي الأول 2026 / 2027 (3 حصص أسبوعياً)</h2>
-    <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:14px;">اضغط على أي درس في الجدول لفتح بطاقة التحضير الكاملة الخاصة به فوراً:</p>
-    <div style="overflow-x:auto;">
-      <table class="schedule-table">
-        <thead>
-          <tr>
-            <th>م</th>
-            <th>الأسبوع والتاريخ</th>
-            <th>الحصة / الفترة</th>
-            <th>الوحدة / المحور</th>
-            <th>كود المعرفة</th>
-            <th>عنوان الدرس (اضغط لفتح التحضير)</th>
-          </tr>
-        </thead>
-        <tbody id="scheduleTableBody"></tbody>
-      </table>
+        /* Sidebar Lesson Navigator */
+        .sidebar-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-soft);
+            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            background: var(--blue-light);
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-col);
+        }
+
+        .sidebar-header h2 {
+            color: var(--blue-dark);
+            font-weight: 800;
+            font-size: 0.98rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--border-col);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            background: #fff;
+            margin-bottom: 8px;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            flex: 1;
+            text-align: center;
+            padding: 5px 8px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            border-radius: 6px;
+            border: 1px solid var(--border-col);
+            background: #fff;
+            color: var(--blue-dark);
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .filter-chip.active {
+            background: var(--blue-main);
+            color: #fff;
+            border-color: var(--blue-main);
+        }
+
+        .week-select {
+            width: 100%;
+            margin-top: 6px;
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-col);
+            font-family: inherit;
+            font-size: 0.82rem;
+            background: #fff;
+            color: var(--text-main);
+        }
+
+        .lessons-list {
+            max-height: 520px;
+            overflow-y: auto;
+            padding: 8px;
+        }
+
+        .lesson-item-btn {
+            width: 100%;
+            text-align: right;
+            background: #fff;
+            border: 1px solid transparent;
+            border-bottom: 1px solid #f1f5f9;
+            padding: 9px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            transition: all 0.15s ease;
+        }
+
+        .lesson-item-btn:hover {
+            background: var(--blue-pale);
+            border-color: var(--border-col);
+        }
+
+        .lesson-item-btn.active {
+            background: var(--blue-light);
+            border-color: var(--blue-main);
+            box-shadow: inset 3px 0 0 var(--blue-main);
+        }
+
+        .lesson-num-badge {
+            background: var(--blue-mid);
+            color: #fff;
+            font-size: 0.74rem;
+            font-weight: 800;
+            min-width: 28px;
+            height: 26px;
+            padding: 0 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .lesson-info {
+            flex: 1;
+        }
+
+        .lesson-info .title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.35;
+        }
+
+        .lesson-info .meta {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Main Content Area */
+        .main-panel {
+            min-width: 0;
+        }
+
+        .toolbar-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 14px;
+            background: #fff;
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border-soft);
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+        }
+
+        .nav-btns {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-action {
+            background: var(--blue-main);
+            color: #fff;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 7px;
+            font-family: inherit;
+            font-size: 0.83rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-action:hover {
+            background: var(--blue-dark);
+        }
+
+        .btn-action.secondary {
+            background: var(--blue-light);
+            color: var(--blue-dark);
+            border: 1px solid var(--border-col);
+        }
+
+        /* Template Sheet Styling - Exact Matching with Original Prep File */
+        .template-sheet {
+            background: #fff;
+            border: 2px solid var(--blue-mid);
+            border-radius: 10px;
+            padding: 24px;
+            box-shadow: 0 4px 18px rgba(15, 23, 42, 0.07);
+            margin-bottom: 22px;
+            direction: rtl;
+            text-align: right;
+            position: relative;
+        }
+
+        .sheet-header-logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 3px solid var(--blue-mid);
+            padding-bottom: 12px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .sheet-badge-title .doc-tag {
+            background: var(--blue-mid);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .sheet-badge-title .doc-sub {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        /* Template Tables */
+        .tpl-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 12px;
+            font-size: 0.88rem;
+            direction: rtl;
+        }
+
+        .tpl-table th, .tpl-table td {
+            border: 1.5px solid var(--border-col);
+            padding: 8px 10px;
+            vertical-align: middle;
+            text-align: right;
+        }
+
+        .tpl-label-cell {
+            background: var(--blue-mid);
+            color: #fff;
+            font-weight: 700;
+            width: 155px;
+            text-align: center !important;
+            white-space: nowrap;
+        }
+
+        .tpl-sub-label {
+            background: var(--blue-light);
+            color: var(--blue-dark);
+            font-weight: 700;
+            text-align: center !important;
+            width: 120px;
+        }
+
+        .tpl-text-align-center {
+            text-align: center !important;
+        }
+
+        .tpl-icon-col {
+            width: 65px;
+            text-align: center !important;
+            background: var(--blue-pale);
+            vertical-align: middle;
+        }
+
+        .tpl-time-col {
+            width: 85px;
+            text-align: center !important;
+            font-weight: 700;
+            background: var(--blue-pale);
+            color: var(--blue-dark);
+        }
+
+        .chk-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px 16px;
+        }
+
+        .chk-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .chk-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border: 1.8px solid var(--blue-main);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #fff;
+            background: #fff;
+        }
+
+        .chk-box.checked {
+            background: var(--blue-main);
+            color: #fff;
+        }
+
+        /* Page Break Dividers */
+        .html2pdf__page-break {
+            height: 0;
+            page-break-before: always;
+            break-before: page;
+            margin: 0;
+            border: none;
+        }
+
+        /* Schedule & Views */
+        .view-section {
+            display: none;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            font-size: 0.87rem;
+            direction: rtl;
+        }
+
+        .schedule-table th {
+            background: var(--blue-dark);
+            color: #fff;
+            padding: 10px;
+            border: 1px solid var(--border-col);
+            text-align: right;
+        }
+
+        .schedule-table td {
+            padding: 8px 11px;
+            border: 1px solid var(--border-soft);
+            text-align: right;
+        }
+
+        .schedule-table tr:hover {
+            background: var(--blue-pale);
+            cursor: pointer;
+        }
+
+        /* Export Styling Override */
+        .pdf-export-mode {
+            background: #fff !important;
+            padding: 15px !important;
+            margin: 0 !important;
+            border: 1.5px solid var(--blue-mid) !important;
+            box-shadow: none !important;
+            width: 100% !important;
+            direction: rtl !important;
+        }
+
+        @media print {
+            .app-topbar, .custom-bar, .sidebar-card, .toolbar-nav, .no-print {
+                display: none !important;
+            }
+            body {
+                background: #fff;
+            }
+            .app-layout {
+                display: block;
+                margin: 0;
+                padding: 0;
+            }
+            .template-sheet {
+                box-shadow: none;
+                border: 1.5px solid #3b6fc4;
+                padding: 12px;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Header -->
+    <header class="app-topbar">
+        <div class="brand-box">
+            <div class="brand-logo-wrap">
+                <span style="font-weight: 800; color: #1e4aa8; font-size: 1.1rem;">QUREO</span>
+            </div>
+            <div class="brand-titles">
+                <h1>دفتر التحضير الإلكتروني المعتمد - البرمجة والذكاء الاصطناعي</h1>
+                <p>الفصل الدراسي الأول 2026 / 2027 م - مدارس التكنولوجيا التطبيقية والتعليم الفني</p>
+            </div>
+        </div>
+        <div class="topbar-actions">
+            <button class="tab-btn active" onclick="switchMainTab('single')" id="tab-btn-single">
+                📄 تحضير درس فردي
+            </button>
+            <button class="tab-btn" onclick="switchMainTab('schedule')" id="tab-btn-schedule">
+                📅 التوزيع الزمني للخطط
+            </button>
+            <button class="tab-btn" onclick="switchMainTab('full')" id="tab-btn-full">
+                📚 استعراض الدفتر الكامل
+            </button>
+            <button class="tab-btn" style="background:#22c55e; border-color:#22c55e;" onclick="downloadPDF()">
+                📥 تحميل PDF المعتمد
+            </button>
+        </div>
+    </header>
+
+    <!-- Teacher & School Info Bar -->
+    <div class="custom-bar">
+        <div class="field-item">
+            <span class="custom-field-label">اسم المعلم:</span>
+            <input type="text" id="cfg-teacher" class="custom-field-input" value="أ / محمد رحال" oninput="syncCustomData()">
+        </div>
+        <div class="field-item">
+            <span class="custom-field-label">المدرسة:</span>
+            <input type="text" id="cfg-school" class="custom-field-input" value="مديرية التربية والتعليم بالقاهرة" oninput="syncCustomData()">
+        </div>
+        <div class="field-item">
+            <span class="custom-field-label">الصف الدراسي:</span>
+            <input type="text" id="cfg-grade" class="custom-field-input" value="الصف الأول الثانوي الفني" oninput="syncCustomData()">
+        </div>
+        <div class="field-item">
+            <span class="custom-field-label">العام الدراسي:</span>
+            <input type="text" id="cfg-year" class="custom-field-input" value="2026 / 2027" oninput="syncCustomData()">
+        </div>
     </div>
-  </div>
-</div>
+
+    <!-- Main Application Container -->
+    <div class="app-layout">
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar-card no-print">
+            <div class="sidebar-header">
+                <h2>
+                    <span>قائمة الدروس والوحدات</span>
+                    <span style="font-size: 0.78rem; font-weight: 600; color: var(--blue-main);" id="lesson-count-badge">36 حصة</span>
+                </h2>
+                <input type="text" id="search-box" class="search-input" placeholder="🔍 بحث عن درس أو موضوع..." oninput="filterLessons()">
+                <div class="filter-row">
+                    <button class="filter-chip active" onclick="setModuleFilter('all', this)">الكل</button>
+                    <button class="filter-chip" onclick="setModuleFilter('1', this)">الوحدة 1</button>
+                    <button class="filter-chip" onclick="setModuleFilter('2', this)">الوحدة 2</button>
+                    <button class="filter-chip" onclick="setModuleFilter('3', this)">الوحدة 3</button>
+                </div>
+                <select id="week-filter" class="week-select" onchange="filterLessons()">
+                    <option value="all">-- جميع الأسابيع الدراسية --</option>
+                    <option value="1">الأسبوع 1: مقدمة وتقنيات المساعدة بالذكاء الاصطناعي</option>
+                    <option value="2">الأسبوع 2: أساسيات HTML وتنسيقات النصوص</option>
+                    <option value="3">الأسبوع 3: الوسائط المتعددة والعناصر التفاعلية</option>
+                    <option value="4">الأسبوع 4: الجداول والنماذج Form العناصر المتقدمة</option>
+                    <option value="5">الأسبوع 5: أساسيات تنسيق المواقع CSS والأنماط</option>
+                    <option value="6">الأسبوع 6: نموذج الصندوق Box Model والإنشاء</option>
+                    <option value="7">الأسبوع 7: التخطيط المتقدم Flexbox والأنماط</option>
+                    <option value="8">الأسبوع 8: التصميم الاستجابي Responsive Web Design</option>
+                    <option value="9">الأسبوع 9: مدخل إلى JavaScript والبرمجة النصية</option>
+                    <option value="10">الأسبوع 10: المتغيرات والعمليات الشرطية Conditional</option>
+                    <option value="11">الأسبوع 11: التكرار Loops والدوال Functions</option>
+                    <option value="12">الأسبوع 12: التعامل مع DOM والأحداث والتفاعل</option>
+                </select>
+            </div>
+            <div class="lessons-list" id="lessons-list-container">
+                <!-- Dynamic List Insertion -->
+            </div>
+        </aside>
+
+        <!-- Main Panel Content -->
+        <main class="main-panel">
+
+            <!-- SINGLE LESSON VIEW -->
+            <div id="view-single" class="view-section active">
+                <div class="toolbar-nav no-print">
+                    <div>
+                        <strong id="current-lesson-indicator" style="color: var(--blue-dark); font-size: 0.95rem;">الدرس الحالي: الحصة 1</strong>
+                    </div>
+                    <div class="nav-btns">
+                        <button class="btn-action secondary" onclick="navigateLesson(-1)">⏮ الدرس السابق</button>
+                        <button class="btn-action secondary" onclick="navigateLesson(1)">الدرس التالي ⏭</button>
+                        <button class="btn-action" onclick="window.print()">🖨️ طباعة الصفحة</button>
+                    </div>
+                </div>
+
+                <div id="single-prep-container">
+                    <!-- Template Card render here -->
+                </div>
+            </div>
+
+            <!-- TIMETABLE / SCHEDULE VIEW -->
+            <div id="view-schedule" class="view-section">
+                <div class="template-sheet">
+                    <div class="sheet-header-logo">
+                        <div style="text-align: right;">
+                            <h3 style="color: var(--blue-dark); font-size: 1.1rem;">خطة التوزيع الزمني المعتمدة للفصل الدراسي الأول 2026 / 2027 (3 حصص أسبوعياً)</h3>
+                            <p style="font-size: 0.82rem; color: var(--text-muted);">اضغط على أي درس في الجدول لفتح صفحة التحضير الكاملة الخاصة به فوراً</p>
+                        </div>
+                    </div>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 70px; text-align: center;">الأسبوع</th>
+                                <th style="width: 80px; text-align: center;">رقم الحصة</th>
+                                <th>عنوان الدرس (اضغط للفتح المباشر)</th>
+                                <th>المحور / الوحدة</th>
+                                <th>الفترة الأسبوعية والتاريخ المقترح</th>
+                            </tr>
+                        </thead>
+                        <tbody id="schedule-table-body">
+                            <!-- Dynamic Content -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- FULL BOOKLET VIEW -->
+            <div id="view-full" class="view-section">
+                <div class="toolbar-nav no-print">
+                    <span style="font-size: 0.9rem; font-weight: 700; color: var(--blue-dark);">عرض دفتر التحضير الكامل (36 حصة دراسية جاهزة للطباعة والتصدير)</span>
+                    <button class="btn-action" onclick="downloadPDF()">📥 تصدير الدفتر كاملاً إلى PDF</button>
+                </div>
+                <div id="full-booklet-container">
+                    <!-- Dynamic rendering of all 36 cards -->
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Script Block containing Lesson Data and Logical Handler -->
+    <script>
+        // Database of 36 Structured Lessons
+        const lessonsData = [
+            {
+                id: 1, week: 1, period: "الأسبوع 1 - الحصة 1", module: "الوحدة الأولى: كود الخبير البرمجي واستخدام منصة QUREO",
+                title: "مقدمة عن منصة QUREO وأخلاقيات الذكاء الاصطناعي في البرمجة",
+                unitTitle: "كود الخبير البرمجي واستخدام QUREO",
+                objectives: "1. أن يتعرف الطالب على واجهة منصة QUREO التعليمية بنسبة صواب 90%.\n2. أن يحدد الأخلاقيات الأساسية لاستخدام الذكاء الاصطناعي في كتابة وتوليد الأكواد.\n3. أن يُميز بين المساعدة البرمجية المشروعة والانتحال العلمي.",
+                outcomes: "يستطيع الطالب تسجيل الدخول والتنقل بثقة داخل بيئة QUREO والالتزام بضوابط النزاهة الأكاديمية أثناء التكويد.",
+                strategy: "عصف ذهني + عرض تعليمي تفاعلي + مناقشة موجهة حول أخلاقيات التكنولوجيا.",
+                intro: "عرض مقطع فيديو قصير يوضح الفرق بين التفكير البرمجي البشري المبتكر والاستعانة بأدوات الذكاء الاصطناعي التوليدي.",
+                content: "1. شرح مكونات واجهة منصة QUREO وخطوات الحساب.\n2. مناقشة مفهوم الملكية الفكرية والأمان الرقمي.\n3. توضيح معايير القبول في تقييمات TOFAS وتطبيقات البرمجة.",
+                activity: "نشاط فردي: قيام كل طالب بإنشاء واستكشاف ملفه الشخصي على بيئة QUREO وكتابة تعهد الاستخدام الأخلاقي.",
+                closure: "طرح سؤال تقويمي: ما الخطر الرئيسي للركون الكامل لتوليد الأكواد دون فهم بنيتها البرمجية؟",
+                tools: "كمبيوتر / شاشة تفاعلية / اتصال إنترنت / منصة QUREO / العرض التقديمي P1.",
+                evalTools: "بطاقة ملاحظة + أسئلة شفهية مباشرة.",
+                evalForm: "1. اذکر ثلاث قواعد لاستخدام الذكاء الاصطناعي في البرمجة.\n2. أين تجد قسم التقييمات في منصة QUREO؟",
+                enrichment: "قراءة مقال إثرائي عن معايير UNESCO لأخلاقيات الذكاء الاصطناعي في التعليم.",
+                remediation: "إعادة شرح خطوات الدخول والتنقل للطلاب الذين واجهوا صعوبة تقنية."
+            },
+            {
+                id: 2, week: 1, period: "الأسبوع 1 - الحصة 2", module: "الوحدة الأولى: كود الخبير البرمجي واستخدام منصة QUREO",
+                title: "التعرف على المساعد البرمجي المعتمد على AI وكيفية توجيهه (Prompting)",
+                unitTitle: "كود الخبير البرمجي واستخدام QUREO",
+                objectives: "1. أن يفهم الطالب مفهوم التوجيه البرمجي Prompting للذكاء الاصطناعي.\n2. أن يصيغ أمر توجيه دقيق للحصول على كود بسيط خالي من الأخطاء.\n3. أن يحلل جودة الاستجابة الصادرة من المساعد الآلي.",
+                outcomes: "يتمكن الطالب من صياغة موجهات برمجية Prompt بأسلوب واضح ومباشر للحصول على نتائج دقيقة.",
+                strategy: "التعلم القائم على المشكلات + التعلم التعاوني في مجموعات ثنائية.",
+                intro: "طرح سؤال: كيف تجعل الذكاء الاصطناعي يفهم بالضبط ما تريد منه بناؤه في الموقع؟",
+                content: "1. عناصر الموجه البرمجي الناجح (السياق، المهمة، القيود، الصيغة المطلوبة).\n2. تحليل أمثلة لموجهات ضعيفة مقابل موجهات دقيقة.\n3. استكشاف أداة AI Assistant المدمجة في المنصة.",
+                activity: "تطبيق عملي: صياغة موجه لبناء هيكل فقرة نصية بلغة HTML ومقارنة الإجابات.",
+                closure: "ملخص لخماسية الموجه البرمجي الناجح وتدوينها في دفتر الطالب.",
